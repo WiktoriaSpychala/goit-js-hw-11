@@ -15,7 +15,7 @@ justify-content: center;
     :focus {
         outline: none;
         border: 2px solid rgb(112, 144, 212);
-    }
+}
 .search-btn {
     margin-left: 5px;
         height: 40px;
@@ -29,7 +29,7 @@ justify-content: center;
             width: 40px;
             height: 40px;
             padding: 7px;
-        }
+}
 .load-more {
     display: flex;
     justify-content: center;
@@ -53,8 +53,8 @@ justify-content: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-top: 30px;
+    margin-bottom: 30px; 
 }
 
 .photo {
@@ -66,15 +66,13 @@ justify-content: center;
 }
 .photo-card {
     flex-flow: column;
-        flex-wrap: wrap;
-        border-radius: 15px;
-        border: 1px solid lightgrey;
-        transition: all 0.3s ease;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
   }
   .info {
     display: flex;
     flex-direction: row;
-  
     justify-content: space-around;
     align-items: center;
     align-content: center;
