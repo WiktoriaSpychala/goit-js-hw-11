@@ -17,14 +17,10 @@ const key = '35040832-5e7ee7e93ffcaf004ab10bdd7';
 btnLoadMore.classList.add('is-hidden');
 
 const fetchPictures = async (searching, page) => {
-  try {
     const response = await axios.get(
       `https://pixabay.com/api/?key=${key}&q=${searching}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`
     );
     return response.data;
-  } catch (error) {
-    console.error(error);
-  }
 };
 
 btn.addEventListener('click', event => {
@@ -62,23 +58,19 @@ btnLoadMore.addEventListener('click', () => {
   fetchPictures(inputValue, pageNumber).then(pictures => {
     if (pictures.hits.length === 0) {
       Notiflix.Notify.failure(
-        'Sorry, there are no images matching your search query. Please try again.'
+        'Sorry, there are no more images matching your search query.'
       );
+      btnLoadMore.classList.add('is-hidden')
     } else {
       newGallery(pictures.hits);
-      Notiflix.Notify.success(
-        `Hooray! We found ${pictures.totalHits} images.`
-      );
       btnLoadMore.classList.remove('is-hidden')
     }
   });
 });
 
 function newGallery(images) {
-  console.log(images, 'images');
   const markup = images
     .map(image => {
-      console.log('img', image);
       return `<div class="photo-card">
        <a href="${image.largeImageURL}"><img class="photo" src="${image.webformatURL}" alt="${image.tags}" title="${image.tags}" loading="lazy"/></a>
         <div class="info">
